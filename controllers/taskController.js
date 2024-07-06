@@ -89,21 +89,21 @@ const getAllTasks = asyncHandler(async (req, res) =>{
 // @desc Delete all tasks
 // @route DELETE /api/tasks
 // @access Public
-const deleteAllTasks = asyncHandler(async (req, res) =>{
-    try {
-        await Task.destroy({
-            where: {},
-            truncate: true,
-        });
-        res.status(200).json({
-            message: "all tasks deleted",
-        });
-    }
+// const deleteAllTasks = asyncHandler(async (req, res) =>{
+//     try {
+//         await Task.destroy({
+//             where: {},
+//             truncate: true,
+//         });
+//         res.status(200).json({
+//             message: "all tasks deleted",
+//         });
+//     }
 
-    catch(err){
-        res.status(500).json(err.message);
-    }
-}); 
+//     catch(err){
+//         res.status(500).json(err.message);
+//     }
+// }); 
 
 // @desc Get all tasks by status
 // @route GET /api/tasks/:status
