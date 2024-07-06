@@ -3,6 +3,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const Task = require("../models/taskModel");
 const taskScheduler = require("../task_scheduler");
+const logger = require("../utils/logger");
 
 // @desc Add a task to the queue
 // @route POST api/add-task
@@ -58,9 +59,16 @@ const addTask = asyncHandler(async (req, res) => {
     taskScheduler.addTask(task.id, executionTime);
     console.log(`\n[ Task ${task.id} ] added to queue at time ${currentTimeInDate} with ${delayInSec} seconds delay`);
 
+    
+    logger.info(`[ Task ${task.id} ] added to queue at time ${currentTimeInDate} with ${delayInSec} seconds delay`);
+    // logger.info({
+    //     message: "task added to queue",
+    //     task: task.dataValues,
+    // });
+
     res.status(200).json({
         message: "task added to queue",
-        task: task,
+        task: task.dataValues,
     });
 });
 
