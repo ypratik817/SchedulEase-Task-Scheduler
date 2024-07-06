@@ -16,6 +16,10 @@ app.use("/api/user", userRouter);
 
 connectDatabase();
 
+app.get("/", async (req, res) => {
+    res.status(200).send('<p>Welcome to task-scheduler api. Checkout <a href="https://github.com/ypratik817/SchedulEase-Task-Scheduler/blob/main/README.md">this</a> for more details.</p>');
+});
+
 app.listen(port, () => {
     console.log(`server is running on port ${port}`);
 });
