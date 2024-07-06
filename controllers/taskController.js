@@ -127,6 +127,6 @@ const getTasksByStatus = asyncHandler(async (req, res) => {
 module.exports = {
     addTask, 
     getAllTasks,
-    deleteAllTasks,
+    // deleteAllTasks,
     getTasksByStatus,
 };
